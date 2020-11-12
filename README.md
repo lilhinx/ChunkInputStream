@@ -6,14 +6,13 @@ Use case: upload a chunk of a file by constructing `NSURLRequest` with `HTTPBody
 
 ### Example
 
-    let fileInputStream = NSInputStream(fileAtPath: "/tmp/readme")
-    let inputStream = ChunkInputStream(inputStream: fileInputStream)
+    let fileInputStream = InputStream( fileAtPath:"/tmp/readme" )
+    let inputStream = ChunkInputStream( inputStream:fileInputStream )
     inputStream.startPosition = 2097152
     inputStream.readMax = 1048576
 
 This creates an inputStream that gives access to the byte-range 2097152-3145727 of the file `/tmp/readme`.
 
-See the included test project for a full example.
 
 ### Credits
 
