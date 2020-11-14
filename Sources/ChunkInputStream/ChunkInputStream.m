@@ -34,6 +34,8 @@
     return self;
 }
 
+
+
 #pragma mark NSStream subclass methods
 
 - (void)open {
@@ -47,16 +49,16 @@
 }
 
 - (id <NSStreamDelegate> )delegate {
-    return delegate;
+    return self;
 }
 
 - (void)setDelegate:(id<NSStreamDelegate>)aDelegate {
-    if (aDelegate == nil) {
-        delegate = self;
-    }
-    else {
-        delegate = aDelegate;
-    }
+//    if (aDelegate == nil) {
+//        delegate = self;
+//    }
+//    else {
+//        delegate = aDelegate;
+//    }
 }
 
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode {
