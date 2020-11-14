@@ -27,8 +27,6 @@
     if (self) {
         parentStream = stream;
         [parentStream setDelegate:self];
-
-        [self setDelegate:self];
     }
 
     return self;
@@ -46,6 +44,8 @@
 
 - (void)close {
     [parentStream close];
+    [parentStream setDelegate:self];
+    parentStream = nil;
 }
 
 - (id <NSStreamDelegate> )delegate {
@@ -53,12 +53,6 @@
 }
 
 - (void)setDelegate:(id<NSStreamDelegate>)aDelegate {
-//    if (aDelegate == nil) {
-//        delegate = self;
-//    }
-//    else {
-//        delegate = aDelegate;
-//    }
 }
 
 - (void)scheduleInRunLoop:(NSRunLoop *)aRunLoop forMode:(NSString *)mode {
